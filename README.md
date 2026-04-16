@@ -98,5 +98,26 @@ The project aims to determine whether:
 - SciPy  
 
 ---
+## Visualizations
 
+### 1. Comment Group Counts
+![Comment Groups](comment_group_counts.png)
+
+### 2. Average Toxicity Comparison
+![Average Toxicity](average_toxicity_comparison.png)
+
+### 3. Average Toxicity Score Comparison
+![Average Toxicity Score](average_toxicity_score_comparison.png)
+
+### 4. Toxicity Distribution Histogram
+![Toxicity Distribution](toxicity_distribution_histogram.png)
+
+### 5. Toxicity Score Histogram
+![Toxicity Score Histogram](toxicity_score_histogram.png)
+
+### 6. Toxicity Boxplot
+![Toxicity Boxplot](toxicity_boxplot.png)
+
+### 7. Toxicity Score Boxplot
+![Toxicity Score Boxplot](toxicity_score_boxplot.png)
 ## 📂 Project Structure
