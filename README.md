@@ -147,4 +147,12 @@ The boxplot highlights the spread and outliers in toxicity values. There are cle
 ![Toxicity Score Boxplot](toxicity_score_boxplot.png)
 
 This visualization shows the variation in toxicity scores. The presence of outliers suggests that some comments are significantly more toxic than others.
+
+---
+
+## May 5 Update: Machine Learning
+
+For this milestone, the original Python script was converted into an executed Jupyter Notebook. Additional hypothesis testing was added, including normality checks and a Mann-Whitney U test.
+
+Machine learning models were applied to predict whether a comment is toxic. Logistic Regression and Decision Tree models were used, and their results were evaluated using accuracy, classification reports, and confusion matrices.
 ## 📂 Project Structure
