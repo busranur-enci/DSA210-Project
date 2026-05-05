@@ -150,7 +150,7 @@ This visualization shows the variation in toxicity scores. The presence of outli
 
 ---
 
-## May 5 Update: Machine Learning
+## Machine Learning
 
 For this milestone, the original Python script was converted into an executed Jupyter Notebook. Additional hypothesis testing was added, including normality checks and a Mann-Whitney U test.
 
