@@ -2,157 +2,221 @@
 
 ## 🧠 Project Overview
 
-This project investigates whether comments containing female-related expressions exhibit more negative sentiment compared to general online comments.
+This project investigates whether comments containing female-related expressions exhibit different toxicity levels compared to other online comments.
 
-The motivation behind this study is to explore potential gender bias in online communication and understand how women-related language is treated in digital platforms.
+The main motivation of this study is to explore potential gender bias in online communication and understand how women-related language is treated on digital platforms.
 
----
-
-## 🎯 Research Question
-
-Is there a statistically significant difference in sentiment between comments containing female-related expressions and general online comments?
+The analysis includes exploratory data analysis (EDA), hypothesis testing, and machine learning methods.
 
 ---
 
-## 📊 Dataset
+# 🎯 Research Question
 
-This project uses publicly available datasets:
-
-- Jigsaw Toxic Comment Classification Dataset  
-- Twitter Hate Speech Dataset  
-
-These datasets include thousands of online comments and tweets labeled with toxicity or sentiment-related information.
+Is there a statistically significant difference in toxicity levels between comments containing female-related expressions and general online comments?
 
 ---
 
-## 🔧 Data Preparation
+# 📊 Dataset
 
-The following preprocessing steps are applied:
+This project uses the **Jigsaw Toxic Comment Classification Dataset** from Kaggle.
 
-- Text cleaning (lowercasing, removing punctuation, links, etc.)
-- Keyword filtering to identify women-related comments  
-  (e.g., "she", "woman", "female", "girl")
-- Creation of a new feature: `women_related`
-- Calculation of a toxicity score using available labels
+Dataset link:
+- https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge/data
 
----
+The dataset contains thousands of online comments labeled with multiple toxicity categories such as:
 
-## 📈 Analysis
-
-The analysis includes:
-
-- Exploratory Data Analysis (EDA)
-- Comparison of average toxicity between:
-  - Women-related comments  
-  - Other comments
-- Visualization using bar charts and histograms
-- Statistical testing (t-test) to evaluate significance
+- toxic
+- severe_toxic
+- obscene
+- threat
+- insult
+- identity_hate
 
 ---
 
-## 🤖 Machine Learning
+# 🔧 Data Preparation
 
-A simple classification model (Logistic Regression) is used to:
+The following preprocessing steps were applied:
 
-- Predict whether a comment is toxic
-- Explore patterns in textual data
+- Converting text to lowercase
+- Cleaning comment text
+- Identifying women-related comments using keywords
+- Creating a new binary feature: `women_related`
+- Calculating a combined toxicity score
 
-Text data is transformed using TF-IDF vectorization.
+Women-related keywords include:
 
----
+```python
+["she", "woman", "women", "female", "girl"]
 
-## 📊 Expected Findings
+📈 Exploratory Data Analysis (EDA)
 
-The project aims to determine whether:
+Several visualizations were created to better understand the dataset and compare toxicity distributions.
 
-- Women-related comments have higher average toxicity
-- The observed difference is statistically significant
+1. Comment Group Counts
+This graph shows the number of women-related comments and other comments in the dataset.
 
----
+2. Average Toxicity Score Comparison
+This visualization compares the average toxicity score between women-related comments and other comments.
 
-## ⚠️ Limitations
+3. Toxicity Score Histogram
+This histogram illustrates the distribution of toxicity scores across comment groups.
 
-- Keyword-based filtering may not capture full context
-- Some comments may include female-related words without targeting women
-- Dataset biases may affect results
-- Sentiment analysis may miss sarcasm or context
+Most comments have relatively low toxicity scores, while a smaller number of comments contain highly toxic content.
 
----
+4. Toxicity Score Boxplot
+The boxplot highlights the spread, median values, and outliers in toxicity scores.
 
-## 🚀 Future Work
+This helps visualize differences in variability between the groups.
 
-- Use advanced NLP models (e.g., BERT)
-- Improve keyword filtering with context-aware methods
-- Expand datasets from multiple platforms
-- Analyze cultural or language differences
+⸻
 
----
+📌 Statistical Analysis
 
-## 🛠️ Technologies Used
+The project includes multiple hypothesis testing methods.
 
-- Python  
-- Pandas  
-- NumPy  
-- Matplotlib  
-- Scikit-learn  
-- SciPy  
+Normality Test
 
----
+Before applying parametric tests, normality assumptions were checked using the Shapiro-Wilk test.
 
-## Visualizations and Interpretation
+The results indicated that the toxicity score distributions were not perfectly normal.
 
-### 1. Comment Group Counts
-![Comment Groups](comment_group_counts.png)
+⸻
 
-This graph shows the number of comments in each group (women-related vs others). The distribution is relatively balanced, which allows for a fair comparison between the two groups.
+Independent T-Test
 
----
+An independent t-test was used to compare average toxicity scores between:
 
-### 2. Average Toxicity Comparison
-![Average Toxicity](average_toxicity_comparison.png)
+* Women-related comments
+* Other comments
 
-This plot compares the average toxicity levels between women-related comments and other comments. The results suggest that there is a noticeable difference between the two groups.
+The test evaluated whether the difference between the groups was statistically significant.
 
----
+⸻
 
-### 3. Average Toxicity Score Comparison
-![Average Toxicity Score](average_toxicity_score_comparison.png)
+Mann-Whitney U Test
 
-This visualization shows the mean toxicity score for each group. Women-related comments appear to have slightly different average toxicity levels.
+Since the data distribution was not perfectly normal, a non-parametric Mann-Whitney U test was also applied.
 
----
+This test confirmed the statistical findings from the t-test.
 
-### 4. Toxicity Distribution Histogram
-![Toxicity Distribution](toxicity_distribution_histogram.png)
+⸻
 
-This histogram shows how toxicity scores are distributed. Most comments have low toxicity, but there are some highly toxic outliers.
+🤖 Machine Learning
 
----
+Machine learning methods were applied to classify toxic comments.
 
-### 5. Toxicity Score Histogram
-![Toxicity Score Histogram](toxicity_score_histogram.png)
+The notebook includes:
 
-This graph further illustrates the spread of toxicity scores. The distribution is skewed, indicating that extreme toxicity values are less frequent.
+* TF-IDF Vectorization
+* Logistic Regression
+* Decision Tree Classification
 
----
+The models were evaluated using:
 
-### 6. Toxicity Boxplot
-![Toxicity Boxplot](toxicity_boxplot.png)
+* Accuracy score
+* Classification report
+* Confusion matrix
 
-The boxplot highlights the spread and outliers in toxicity values. There are clear differences in variability between the groups.
+The goal was to explore whether textual patterns can help predict toxicity levels.
 
----
+⸻
 
-### 7. Toxicity Score Boxplot
-![Toxicity Score Boxplot](toxicity_score_boxplot.png)
+📌 Results
 
-This visualization shows the variation in toxicity scores. The presence of outliers suggests that some comments are significantly more toxic than others.
+The analysis suggests that women-related comments exhibit different toxicity distributions compared to other comments.
 
----
+Both the independent t-test and the Mann-Whitney U test indicated statistically significant differences between the groups.
 
-## Machine Learning
+Additionally, the machine learning models achieved reasonable performance in predicting toxic comments.
 
-For this milestone, the original Python script was converted into an executed Jupyter Notebook. Additional hypothesis testing was added, including normality checks and a Mann-Whitney U test.
+⸻
 
-Machine learning models were applied to predict whether a comment is toxic. Logistic Regression and Decision Tree models were used, and their results were evaluated using accuracy, classification reports, and confusion matrices.
-## 📂 Project Structure
+⚠️ Limitations
+
+This project has several limitations:
+
+* Keyword-based filtering may not fully capture context
+* Some comments may contain female-related words without targeting women
+* Toxicity labels may include dataset biases
+* Simple machine learning models have limited contextual understanding
+
+⸻
+
+🚀 Future Work
+
+Possible future improvements include:
+
+* Using transformer-based NLP models such as BERT
+* Expanding the dataset with data from multiple platforms
+* Applying more advanced sentiment analysis techniques
+* Improving contextual understanding of gender-related language
+
+⸻
+
+📓 Jupyter Notebook
+
+The project was converted from a Python script into an executed Jupyter Notebook as requested in the milestone feedback.
+
+Main notebook:
+
+* DSA210_Final_Project.ipynb
+
+⸻
+
+▶️ How to Run
+
+1. Install required libraries
+pip install pandas numpy matplotlib scipy scikit-learn notebook
+
+2. Download the dataset
+
+Download the Jigsaw Toxic Comment dataset from Kaggle and place:
+train.csv
+inside the:
+data/ folder.
+3. Launch Jupyter Notebook
+jupyter notebook
+4. Run all notebook cells sequentially
+
+The notebook will:
+
+* Load the dataset
+* Perform EDA
+* Apply hypothesis testing
+* Generate visualizations
+* Train machine learning models
+
+⸻
+
+🛠️ Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* SciPy
+* Scikit-learn
+* Jupyter Notebook
+
+⸻
+
+📂 Project Structure
+DSA210-PROJECT/
+│
+├── data/
+│   └── train.csv
+│
+├── result/
+│
+├── src/
+│
+├── DSA210_Final_Project.ipynb
+├── analysis.py
+├── README.md
+│
+├── comment_group_counts.png
+├── average_toxicity_score_comparison.png
+├── toxicity_score_histogram.png
+├── toxicity_score_boxplot.png
+
