@@ -55,17 +55,21 @@ Women-related keywords include:
 Several visualizations were created to better understand the dataset and compare toxicity distributions.
 
 1. Comment Group Counts
+   ![Comment Groups](comment_group_counts.png)
 This graph shows the number of women-related comments and other comments in the dataset.
 
 2. Average Toxicity Score Comparison
+   ![Average Toxicity](average_toxicity_score_comparison.png)
 This visualization compares the average toxicity score between women-related comments and other comments.
 
 3. Toxicity Score Histogram
+   ![Histogram](toxicity_score_histogram.png)
 This histogram illustrates the distribution of toxicity scores across comment groups.
 
 Most comments have relatively low toxicity scores, while a smaller number of comments contain highly toxic content.
 
 4. Toxicity Score Boxplot
+   ![Boxplot](toxicity_score_boxplot.png)
 The boxplot highlights the spread, median values, and outliers in toxicity scores.
 
 This helps visualize differences in variability between the groups.
